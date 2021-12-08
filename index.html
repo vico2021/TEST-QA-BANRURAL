@@ -41,21 +41,21 @@
 </body>
 
 <script>
-  let randomNumber = Math.random() * 10;
+  var randomNumber = Math.floor(Math.random() * 100) + 1;
 
-  const ATTEMPS = 5;
-  const guesses = document.querySelector('.guesses');
-  const lastResult = document.querySelector('.lastResult');
-  const lowOrHi = document.querySelector('lowOrHi');
-  const guessSubmit = document.querySelector('.guessSubmit');
-  const guessField = document.querySelector('.guessField');
+  var ATTEMPS = 5;
+  var guesses = document.querySelector('.guesses');
+  var lastResult = document.querySelector('.lastResult');
+  var lowOrHi = document.querySelector('lowOrHi');
+  var guessSubmit = document.querySelector('.guessSubmit');
+  var guessField = document.querySelector('.guessField');
 
-  let guessCount = 1;
-  let resetButton;
+  var guessCount = 1;
+  var resetButton;
 
   function checkGuess() {
 
-    let userGuess = guessField.value;
+    var userGuess = guessField.value;
     if(guessCount === 1) {
       guesses.textContent = 'Número aleatorio anterior: ';
     }
@@ -66,7 +66,7 @@
       lastResult.style.backgroundColor = 'black';
       lowOrHi.textContent = '';
       setGameOver();
-    } else if(guessCount === ATTEMPS) {
+    } else if(guessCount === 10) {
       lastResult.textContent = 'Felicitaciones! adivinaste el número!';
       lastResult.style.backgroundColor = 'red';
       setGameOver();
@@ -98,8 +98,8 @@
   function resetGame() {
 	  guessCount = 1;
 
-	  const resetParas = document.querySelectorAll('.resultParas p');
-	  for(let i = 0; i < resetParas.length; i++) {
+	  var resetParas = document.querySelectorAll('.resultParas p');
+	  for(var i = 0; i < resetParas.length; i++) {
 		  resetParas[i].textContent = '';
 	  }
 	  resetButton.parentNode.removeChild(resetButton);
